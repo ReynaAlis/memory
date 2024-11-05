@@ -1,0 +1,151 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Luckiest Guy';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/luckiest-guy-v22-latin-regular.woff2') format('woff2');
+}
+
+:root {
+    --primary-color: #2d2b55;
+    --secondary-color: #ff7518;
+    --background-color: #1a1a1a;
+    --text-color-dark: #000;
+    --card-color: #333;
+    --card-hover-color: #ff7518;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Luckiest Guy", cursive;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color-dark);
+    letter-spacing: 0.15em;
+}
+
+h1, h2, h3, .heading, .description, #timer {
+    color: var(--text-color-dark);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.heading {
+    position: relative;
+    font-size: 2em;
+    transition: color 1s ease-in-out;
+}
+
+.heading::before {
+    content: attr(data-item);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: var(--secondary-color);
+    overflow: hidden;
+    transition: width 1s ease-in-out;
+    white-space: nowrap;
+}
+
+.heading:hover::before {
+    width: 100%;
+}
+
+#game-board {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    border: 2px solid var(--secondary-color);
+    padding: 1em;
+    background-color: var(--card-color);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#game-board.inactive {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#new-game-button {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border: 2px solid var(--background-color);
+    border-radius: 0.5em;
+    padding: 0.5em 2em;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#new-game-button:hover {
+    background-color: #e66a00;
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+.card {
+    width: 5em;
+    height: 5em;
+    perspective: 50em;
+    cursor: pointer;
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card.visible .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 0.5em;
+    box-shadow: 0.05em 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.1);
+    font-size: 2.5em;
+    color: white;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
