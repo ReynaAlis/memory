@@ -176,22 +176,28 @@ h1, h2, h3, .heading, .description, #timer {
     }
 
     #game-board {
-        width: 100%;
-        max-width: 280px;
+        width: 90vw;
+        max-width: 320px;
+        max-height: 60vh;
         height: auto;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.5em;
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 0.4em;
         padding: 0.5em;
+        border: 2px solid var(--secondary-color);
+        background-color: var(--card-color);
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     }
 
     .card {
-        width: 4em;
-        height: 4em;
+        width: 100%;
+        aspect-ratio: 1;
+        height: auto;
     }
 
     #new-game-button {
         font-size: 1em;
         padding: 0.5em 1.5em;
-        margin-top: 1em;
+        margin-top: 0.5em;
     }
 }
