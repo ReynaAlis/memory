@@ -195,6 +195,11 @@ h1, h2, h3, .heading, .description, #timer {
         height: auto;
     }
 
+    #victory-message {
+        color: #ff7518;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
     #new-game-button {
         font-size: 1em;
         padding: 0.5em 1.5em;
