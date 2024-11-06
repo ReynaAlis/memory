@@ -41,6 +41,7 @@ h1, h2, h3, .heading, .description, #timer {
     color: var(--text-color-dark);
     margin-top: 0;
     margin-bottom: 0.5em;
+    text-align: center;
 }
 
 .heading {
@@ -148,4 +149,49 @@ h1, h2, h3, .heading, .description, #timer {
 
 .card-back {
     transform: rotateY(180deg);
+}
+
+@media (max-width: 596px) {
+    body {
+        background: url('../images/bg-mobile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
+    .heading {
+        font-size: 1.5em;
+        margin-top: 0.5em;
+        margin-bottom: 0.25em;
+    }
+
+    .description {
+        font-size: 1em;
+    }
+
+    #timer {
+        font-size: 1em;
+        margin-bottom: 0.25em;
+    }
+
+    #game-board {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5em;
+        padding: 0.5em;
+    }
+
+    .card {
+        width: 4em;
+        height: 4em;
+    }
+
+    #new-game-button {
+        font-size: 1em;
+        padding: 0.5em 1.5em;
+        margin-top: 1em;
+    }
 }
