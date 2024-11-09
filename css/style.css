@@ -29,12 +29,14 @@ body {
     font-family: "Luckiest Guy", cursive;
     padding-top: 2em;
     padding-bottom: 2em;
-    background: url('../images/bg.jpg');
+    background: url('../images/halloween/halloween-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--text-color-dark);
     letter-spacing: 0.15em;
+    overflow: hidden
 }
 
 h1, h2, h3, .heading, .description, #timer {
@@ -42,6 +44,7 @@ h1, h2, h3, .heading, .description, #timer {
     margin-top: 0;
     margin-bottom: 0.5em;
     text-align: center;
+    text-shadow: 0 0 3px #fff;
 }
 
 .heading {
@@ -86,23 +89,6 @@ h1, h2, h3, .heading, .description, #timer {
 #game-board.inactive {
     pointer-events: none;
     opacity: 0.5;
-}
-
-#new-game-button {
-    background-color: var(--secondary-color);
-    color: var(--background-color);
-    border: 2px solid var(--background-color);
-    border-radius: 0.5em;
-    padding: 0.5em 2em;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-#new-game-button:hover {
-    background-color: #e66a00;
-    box-shadow: 0 0 10px var(--secondary-color);
 }
 
 .card {
@@ -151,12 +137,109 @@ h1, h2, h3, .heading, .description, #timer {
     transform: rotateY(180deg);
 }
 
+#victory-message {
+    text-align: center;
+    color: #ff7518;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.spark {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+#new-game-button {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border: 2px solid var(--background-color);
+    border-radius: 0.5em;
+    padding: 0.5em 2em;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#new-game-button:hover {
+    background-color: #e66a00;
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+#theme-buttons {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#theme-buttons button {
+    background: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 0 20px red;
+    animation: intenseSparkle 1s infinite alternate;
+}
+
+#theme-buttons button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(0 0 5px white);
+}
+
+#theme-buttons img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes intenseSparkle {
+    0% {
+        box-shadow: 0 0 20px red, 0 0 40px red, 0 0 60px red;
+    }
+
+    100% {
+        box-shadow: 0 0 40px red, 0 0 80px red, 0 0 120px red;
+    }
+}
+
+@media (max-width: 866px) {
+    #theme-buttons {
+        top: 150px;
+        left: 10px;
+    }
+}
+
+@media (max-width: 688px) {
+    body {
+        padding-top: 80px;
+    }
+
+    #theme-buttons {
+        width: 100%;
+        top: 10px;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
 @media (max-width: 596px) {
     body {
-        background: url('../images/bg-mobile.jpg');
+        background: url('../images/halloween/halloween-bg-mobile.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        padding-top: 1em;
+        background-attachment: fixed;
+        padding-top: 3em;
         padding-bottom: 1em;
     }
 
@@ -193,11 +276,6 @@ h1, h2, h3, .heading, .description, #timer {
         width: 100%;
         aspect-ratio: 1;
         height: auto;
-    }
-
-    #victory-message {
-        color: #ff7518;
-        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
 
     #new-game-button {
