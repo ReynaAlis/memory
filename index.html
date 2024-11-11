@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A fun memory game to test your skills and find pairs of cards.">
-    <meta name="keywords" content="memory game, card matching game, fun games, brain games, puzzle game, memory training">
+    <meta name="keywords"
+        content="memory game, card matching game, fun games, brain games, puzzle game, memory training">
 
     <title>Memory Game</title>
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
@@ -18,6 +19,8 @@
 
 <body>
     <h1 class="heading" data-item="Memory Game">Memory Game</h1>
+    <button id="new-game-button">Start</button>
+
     <h2 class="description">Find all pairs for the cards</h2>
     <h3 id="timer">Time: 60 seconds</h3>
 
@@ -25,14 +28,15 @@
 
     <h4 id="victory-message" aria-live="polite"></h4>
 
-    <button id="new-game-button">Start new Game</button>
-
     <div id="theme-buttons">
         <button id="christmas-theme" aria-label="Switch to Christmas theme">
             <img src="images/christmas/7.png" alt="Chtistmas theme">
         </button>
         <button id="halloween-theme" aria-label="Switch to Halloween theme">
             <img src="images/halloween/halloween.png" alt="Halloween theme">
+        </button>
+        <button id="robots-theme" aria-label="Switch to Robots theme">
+            <img src="images/robots/1.png" alt="Robots theme">
         </button>
     </div>
 

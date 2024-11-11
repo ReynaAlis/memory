@@ -4,6 +4,7 @@ const START_GAME_BUTTON = document.querySelector("#new-game-button");
 const TIMER_NODE = document.querySelector("#timer");
 const HALLOWEEN_BUTTON = document.querySelector("#halloween-theme");
 const CHRISTMAS_BUTTON = document.querySelector("#christmas-theme");
+const ROBOTS_BUTTON = document.querySelector("#robots-theme");
 
 const VISIBLE_CARD_CLASSNAME = "visible";
 const CARD_FLIP_TIMEOUT_MS = 500;
@@ -29,6 +30,17 @@ const CHRISTMAS_CARDS = [
     'images/christmas/6.png', 'images/christmas/6.png',
     'images/christmas/7.png', 'images/christmas/7.png',
     'images/christmas/8.png', 'images/christmas/8.png'
+];
+
+const ROBOTS_CARDS = [
+    'images/robots/1.png', 'images/robots/1.png',
+    'images/robots/2.png', 'images/robots/2.png',
+    'images/robots/3.png', 'images/robots/3.png',
+    'images/robots/4.png', 'images/robots/4.png',
+    'images/robots/5.png', 'images/robots/5.png',
+    'images/robots/6.png', 'images/robots/6.png',
+    'images/robots/7.png', 'images/robots/7.png',
+    'images/robots/8.png', 'images/robots/8.png'
 ];
 
 const CARDS_AMOUNT = 16;
@@ -182,6 +194,12 @@ HALLOWEEN_BUTTON.addEventListener("click", () => {
 CHRISTMAS_BUTTON.addEventListener("click", () => {
     currentThemeCards = CHRISTMAS_CARDS;
     currentThemeBackground = 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(\'images/christmas/christmas-bg.jpg\')';
+    startGame();
+});
+
+ROBOTS_BUTTON.addEventListener("click", () => {
+    currentThemeCards = ROBOTS_CARDS;
+    currentThemeBackground = 'url(\'images/robots/robots-bg.jpg\')';
     startGame();
 });
 

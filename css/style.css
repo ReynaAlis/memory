@@ -27,8 +27,8 @@ body {
     align-items: center;
     flex-direction: column;
     font-family: "Luckiest Guy", cursive;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
     background: url('../images/halloween/halloween-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -36,13 +36,13 @@ body {
     background-attachment: fixed;
     color: var(--text-color-dark);
     letter-spacing: 0.15em;
-    overflow: hidden
+    overflow-x: hidden;
 }
 
 h1, h2, h3, .heading, .description, #timer {
     color: var(--text-color-dark);
     margin-top: 0;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
     text-align: center;
     text-shadow: 0 0 3px #fff;
 }
@@ -213,6 +213,23 @@ h1, h2, h3, .heading, .description, #timer {
     }
 }
 
+@media (max-width: 1596px) {
+    #game-board {
+        width: 85vw;
+        max-width: 450px;
+        height: auto;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5em;
+        padding: 0.5em;
+    }
+
+    .card {
+        width: 100%;
+        aspect-ratio: 1;
+        height: auto;
+    }
+}
+
 @media (max-width: 866px) {
     #theme-buttons {
         top: 150px;
@@ -266,10 +283,6 @@ h1, h2, h3, .heading, .description, #timer {
         grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
         gap: 0.4em;
         padding: 0.5em;
-        border: 2px solid var(--secondary-color);
-        background-color: var(--card-color);
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     }
 
     .card {
