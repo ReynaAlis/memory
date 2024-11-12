@@ -10,54 +10,180 @@ const VISIBLE_CARD_CLASSNAME = "visible";
 const CARD_FLIP_TIMEOUT_MS = 500;
 const GAME_TIME_LIMIT_MS = 60000;
 
-const HALLOWEEN_CARDS = [
-    'images/halloween/1.png', 'images/halloween/1.png',
-    'images/halloween/2.png', 'images/halloween/2.png',
-    'images/halloween/3.png', 'images/halloween/3.png',
-    'images/halloween/4.png', 'images/halloween/4.png',
-    'images/halloween/5.png', 'images/halloween/5.png',
-    'images/halloween/6.png', 'images/halloween/6.png',
-    'images/halloween/7.png', 'images/halloween/7.png',
-    'images/halloween/8.png', 'images/halloween/8.png'
-];
-
-const CHRISTMAS_CARDS = [
-    'images/christmas/1.png', 'images/christmas/1.png',
-    'images/christmas/2.png', 'images/christmas/2.png',
-    'images/christmas/3.png', 'images/christmas/3.png',
-    'images/christmas/4.png', 'images/christmas/4.png',
-    'images/christmas/5.png', 'images/christmas/5.png',
-    'images/christmas/6.png', 'images/christmas/6.png',
-    'images/christmas/7.png', 'images/christmas/7.png',
-    'images/christmas/8.png', 'images/christmas/8.png'
-];
-
-const ROBOTS_CARDS = [
-    'images/robots/1.png', 'images/robots/1.png',
-    'images/robots/2.png', 'images/robots/2.png',
-    'images/robots/3.png', 'images/robots/3.png',
-    'images/robots/4.png', 'images/robots/4.png',
-    'images/robots/5.png', 'images/robots/5.png',
-    'images/robots/6.png', 'images/robots/6.png',
-    'images/robots/7.png', 'images/robots/7.png',
-    'images/robots/8.png', 'images/robots/8.png'
-];
-
 const CARDS_AMOUNT = 16;
+
+const UNIQUE_HALLOWEEN_CARDS = [
+    {
+        avif: 'images/halloween/1.avif',
+        webp: 'images/halloween/1.webp',
+        png: 'images/halloween/1.png'
+    },
+    {
+        avif: 'images/halloween/2.avif',
+        webp: 'images/halloween/2.webp',
+        png: 'images/halloween/2.png'
+    },
+    {
+        avif: 'images/halloween/3.avif',
+        webp: 'images/halloween/3.webp',
+        png: 'images/halloween/3.png'
+    },
+    {
+        avif: 'images/halloween/4.avif',
+        webp: 'images/halloween/4.webp',
+        png: 'images/halloween/4.png'
+    },
+    {
+        avif: 'images/halloween/5.avif',
+        webp: 'images/halloween/5.webp',
+        png: 'images/halloween/5.png'
+    },
+    {
+        avif: 'images/halloween/6.avif',
+        webp: 'images/halloween/6.webp',
+        png: 'images/halloween/6.png'
+    },
+    {
+        avif: 'images/halloween/7.avif',
+        webp: 'images/halloween/7.webp',
+        png: 'images/halloween/7.png'
+    },
+    {
+        avif: 'images/halloween/8.avif',
+        webp: 'images/halloween/8.webp',
+        png: 'images/halloween/8.png'
+    }
+];
+
+const UNIQUE_CHRISTMAS_CARDS = [
+    {
+        avif: 'images/christmas/1.avif',
+        webp: 'images/christmas/1.webp',
+        png: 'images/christmas/1.png'
+    },
+    {
+        avif: 'images/christmas/2.avif',
+        webp: 'images/christmas/2.webp',
+        png: 'images/christmas/2.png'
+    },
+    {
+        avif: 'images/christmas/3.avif',
+        webp: 'images/christmas/3.webp',
+        png: 'images/christmas/3.png'
+    },
+    {
+        avif: 'images/christmas/4.avif',
+        webp: 'images/christmas/4.webp',
+        png: 'images/christmas/4.png'
+    },
+    {
+        avif: 'images/christmas/5.avif',
+        webp: 'images/christmas/5.webp',
+        png: 'images/christmas/5.png'
+    },
+    {
+        avif: 'images/christmas/6.avif',
+        webp: 'images/christmas/6.webp',
+        png: 'images/christmas/6.png'
+    },
+    {
+        avif: 'images/christmas/7.avif',
+        webp: 'images/christmas/7.webp',
+        png: 'images/christmas/7.png'
+    },
+    {
+        avif: 'images/christmas/8.avif',
+        webp: 'images/christmas/8.webp',
+        png: 'images/christmas/8.png'
+    }
+];
+
+const UNIQUE_ROBOTS_CARDS = [
+    {
+        avif: 'images/robots/1.avif',
+        webp: 'images/robots/1.webp',
+        png: 'images/robots/1.png'
+    },
+    {
+        avif: 'images/robots/2.avif',
+        webp: 'images/robots/2.webp',
+        png: 'images/robots/2.png'
+    },
+    {
+        avif: 'images/robots/3.avif',
+        webp: 'images/robots/3.webp',
+        png: 'images/robots/3.png'
+    },
+    {
+        avif: 'images/robots/4.avif',
+        webp: 'images/robots/4.webp',
+        png: 'images/robots/4.png'
+    },
+    {
+        avif: 'images/robots/5.avif',
+        webp: 'images/robots/5.webp',
+        png: 'images/robots/5.png'
+    },
+    {
+        avif: 'images/robots/6.avif',
+        webp: 'images/robots/6.webp',
+        png: 'images/robots/6.png'
+    },
+    {
+        avif: 'images/robots/7.avif',
+        webp: 'images/robots/7.webp',
+        png: 'images/robots/7.png'
+    },
+    {
+        avif: 'images/robots/8.avif',
+        webp: 'images/robots/8.webp',
+        png: 'images/robots/8.png'
+    }
+];
+
+function createPairs(cardsArray) {
+    return [...cardsArray, ...cardsArray];
+}
+
+const HALLOWEEN_CARDS = createPairs(UNIQUE_HALLOWEEN_CARDS);
+
+const CHRISTMAS_CARDS = createPairs(UNIQUE_CHRISTMAS_CARDS);
+
+const ROBOTS_CARDS = createPairs(UNIQUE_ROBOTS_CARDS);
 
 let VISIBLE_CARDS = [];
 let matchedPairs = 0;
 let timerInterval;
 let currentThemeCards = HALLOWEEN_CARDS;
-let currentThemeBackground = 'url(\'images/halloween/halloween-bg.jpg\')';
+let currentThemeBackground = 'images/halloween/halloween-bg';
 
-function setThemeBackground() {
-    document.body.style.backgroundImage = currentThemeBackground;
+async function supportsWebP() {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = "data:image/webp;base64,UklGRhYAAABXRUJQVlA4WAoAAAAQAAAABwAAQUxQSBYAAAABZlAFp8mMFwAA";
+    });
 }
 
-function renderCard(cardPath = "") {
-    const card = document.createElement("div");
-    card.classList.add("card");
+function supportsAvif() {
+    return typeof window.ImageDecoder === "function" && ImageDecoder.isTypeSupported("image/avif");
+}
+
+async function selectImageFormat(card) {
+    if (await supportsAvif()) {
+        return card.avif;
+    } else if (await supportsWebP()) {
+        return card.webp;
+    }
+    return card.png;
+}
+
+async function renderCard(card) {
+    const cardPath = await selectImageFormat(card);
+
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("card");
 
     const cardInner = document.createElement("div");
     cardInner.classList.add("card-inner");
@@ -77,11 +203,28 @@ function renderCard(cardPath = "") {
 
     cardInner.appendChild(cardFront);
     cardInner.appendChild(cardBack);
-    card.appendChild(cardInner);
+    cardElement.appendChild(cardInner);
 
-    card.addEventListener("click", handleCardClick.bind(this, card));
+    cardElement.addEventListener("click", handleCardClick.bind(this, cardElement));
+    GAME_NODE.appendChild(cardElement);
+}
+async function setInitialBackground() {
+    currentThemeBackground = 'images/halloween/halloween-bg';
+    await setThemeBackground();
+}
 
-    GAME_NODE.appendChild(card);
+document.addEventListener("DOMContentLoaded", setInitialBackground);
+
+async function setThemeBackground() {
+    let backgroundUrl;
+    if (await supportsAvif()) {
+        backgroundUrl = `url('${currentThemeBackground}.avif')`;
+    } else if (await supportsWebP()) {
+        backgroundUrl = `url('${currentThemeBackground}.webp')`;
+    } else {
+        backgroundUrl = `url('${currentThemeBackground}.jpg')`;
+    }
+    document.body.style.backgroundImage = backgroundUrl;
 }
 
 function startGame() {
@@ -185,23 +328,16 @@ function checkVictory() {
     }
 }
 
-HALLOWEEN_BUTTON.addEventListener("click", () => {
-    currentThemeCards = HALLOWEEN_CARDS;
-    currentThemeBackground = 'url(\'images/halloween/halloween-bg.jpg\')';
-    startGame();
-});
+function switchTheme(themeName, cards, backgroundPath) {
+    currentThemeCards = cards;
+    currentThemeBackground = backgroundPath;
+    setThemeBackground(); 
+    startGame(); 
+}
 
-CHRISTMAS_BUTTON.addEventListener("click", () => {
-    currentThemeCards = CHRISTMAS_CARDS;
-    currentThemeBackground = 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(\'images/christmas/christmas-bg.jpg\')';
-    startGame();
-});
-
-ROBOTS_BUTTON.addEventListener("click", () => {
-    currentThemeCards = ROBOTS_CARDS;
-    currentThemeBackground = 'url(\'images/robots/robots-bg.jpg\')';
-    startGame();
-});
+HALLOWEEN_BUTTON.addEventListener("click", () => switchTheme('halloween', HALLOWEEN_CARDS, 'images/halloween/halloween-bg'));
+CHRISTMAS_BUTTON.addEventListener("click", () => switchTheme('christmas', CHRISTMAS_CARDS, 'images/christmas/christmas-bg'));
+ROBOTS_BUTTON.addEventListener("click", () => switchTheme('robots', ROBOTS_CARDS, 'images/robots/robots-bg'));
 
 START_GAME_BUTTON.addEventListener("click", startGame);
 

@@ -42,17 +42,30 @@
 
     <h4 id="victory-message" aria-live="polite"></h4>
 
-    <div id="theme-buttons">
-        <button id="christmas-theme" aria-label="Switch to Christmas theme">
-            <img src="images/christmas/7.png" alt="Chtistmas theme">
-        </button>
-        <button id="halloween-theme" aria-label="Switch to Halloween theme">
+<div id="theme-buttons">
+    <button id="christmas-theme" aria-label="Switch to Christmas theme">
+        <picture>
+            <source srcset="images/christmas/7.avif" type="image/avif">
+            <source srcset="images/christmas/7.webp" type="image/webp">
+            <img src="images/christmas/7.png" alt="Christmas theme">
+        </picture>
+    </button>
+    <button id="halloween-theme" aria-label="Switch to Halloween theme">
+        <picture>
+            <source srcset="images/halloween/halloween.avif" type="image/avif">
+            <source srcset="images/halloween/halloween.webp" type="image/webp">
             <img src="images/halloween/halloween.png" alt="Halloween theme">
-        </button>
-        <button id="robots-theme" aria-label="Switch to Robots theme">
+        </picture>
+    </button>
+    <button id="robots-theme" aria-label="Switch to Robots theme">
+        <picture>
+            <source srcset="images/robots/1.avif" type="image/avif">
+            <source srcset="images/robots/1.webp" type="image/webp">
             <img src="images/robots/1.png" alt="Robots theme">
-        </button>
-    </div>
+        </picture>
+    </button>
+</div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js" defer></script>
     <script src="js/script.js" defer></script>
