@@ -12,6 +12,48 @@ const GAME_TIME_LIMIT_MS = 60000;
 
 const CARDS_AMOUNT = 16;
 
+const audio = new Audio();
+audio.loop = true;
+
+const musicFiles = {
+    halloween: {
+        mp3: 'audio/halloween.mp3',
+        ogg: 'audio/halloween.ogg',
+        aac: 'audio/halloween.m4a'
+    },
+    christmas: {
+        mp3: 'audio/christmas.mp3',
+        ogg: 'audio/christmas.ogg',
+        aac: 'audio/christmas.m4a'
+    },
+    robots: {
+        mp3: 'audio/robots.mp3',
+        ogg: 'audio/robots.ogg',
+        aac: 'audio/robots.m4a'
+    }
+};
+
+let isMusicPlaying = true;
+
+function toggleMusic() {
+    if (isMusicPlaying) {
+        audio.pause();
+        document.getElementById("music-toggle").textContent = "🔇";
+    } else {
+        audio.play();
+        document.getElementById("music-toggle").textContent = "🔊";
+    }
+    isMusicPlaying = !isMusicPlaying;
+}
+
+function setThemeMusic(theme) {
+    const audioSrc = musicFiles[theme];
+    audio.src = audioSrc.mp3;
+    if (isMusicPlaying) {
+        audio.play();
+    }
+}
+
 const UNIQUE_HALLOWEEN_CARDS = [
     {
         avif: 'images/halloween/1.avif',
@@ -214,6 +256,7 @@ async function setInitialBackground() {
 }
 
 document.addEventListener("DOMContentLoaded", setInitialBackground);
+document.getElementById("music-toggle").addEventListener("click", toggleMusic);
 
 async function setThemeBackground() {
     let backgroundUrl;
@@ -249,7 +292,6 @@ function startGame() {
         const renderedCards = document.querySelectorAll(".card");
 
         GAME_NODE.style.pointerEvents = "none";
-        console.log("Клики временно отключены");
 
         setTimeout(() => {
             renderedCards.forEach((card) => {
@@ -260,7 +302,7 @@ function startGame() {
                 renderedCards.forEach((card) => card.classList.remove(VISIBLE_CARD_CLASSNAME));
                 GAME_NODE.style.pointerEvents = "auto";
             }, 2000);
-        }, 100); 
+        }, 100);
     })();
 
     let remainingTime = GAME_TIME_LIMIT_MS / 1000;
@@ -342,10 +384,11 @@ function checkVictory() {
     }
 }
 
-function switchTheme(themeName, cards, backgroundPath) {
+function switchTheme(theme, cards, backgroundPath) {
     currentThemeCards = cards;
     currentThemeBackground = backgroundPath;
     setThemeBackground();
+    setThemeMusic(theme);
     startGame();
 }
 
@@ -353,6 +396,15 @@ HALLOWEEN_BUTTON.addEventListener("click", () => switchTheme('halloween', HALLOW
 CHRISTMAS_BUTTON.addEventListener("click", () => switchTheme('christmas', CHRISTMAS_CARDS, 'images/christmas/christmas-bg'));
 ROBOTS_BUTTON.addEventListener("click", () => switchTheme('robots', ROBOTS_CARDS, 'images/robots/robots-bg'));
 
-START_GAME_BUTTON.addEventListener("click", startGame);
+let isInitialMusicPlayed = false;
+
+START_GAME_BUTTON.addEventListener("click", () => {
+    if (!isInitialMusicPlayed) {
+        setThemeMusic('halloween'); 
+        isInitialMusicPlayed = true;
+    }
+    startGame(); 
+});
+
 
 

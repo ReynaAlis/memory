@@ -202,6 +202,24 @@ h1, h2, h3, .heading, .description, #timer {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+#music-button {
+    position: absolute;
+    top: 220px;
+    left: 100px;
+}
+
+#music-button button {
+    background: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 1.2em;
+    outline: none;
+    transition: transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 0 20px red;
+    animation: intenseSparkle 1s infinite alternate;
+}
+
 @keyframes intenseSparkle {
     0% {
         box-shadow: 0 0 20px red, 0 0 40px red, 0 0 60px red;
@@ -234,6 +252,11 @@ h1, h2, h3, .heading, .description, #timer {
         top: 150px;
         left: 10px;
     }
+
+    #music-button {
+        top: 350px;
+        left: 10px;
+    }
 }
 
 @media (max-width: 688px) {
@@ -246,6 +269,10 @@ h1, h2, h3, .heading, .description, #timer {
         top: 10px;
         flex-direction: row;
         justify-content: space-evenly;
+    }
+
+    #music-button {
+        top: 145px;
     }
 }
 
@@ -294,5 +321,9 @@ h1, h2, h3, .heading, .description, #timer {
         font-size: 1em;
         padding: 0.5em 1.5em;
         margin-top: 0.5em;
+    }
+
+    #music-button {
+        top: 125px;
     }
 }
