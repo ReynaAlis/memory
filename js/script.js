@@ -240,14 +240,28 @@ function startGame() {
     setThemeBackground();
 
     const shuffledCards = currentThemeCards.slice().sort(() => Math.random() - 0.5);
-    shuffledCards.forEach(renderCard);
 
-    const renderedCards = document.querySelectorAll(".card");
-    renderedCards.forEach((card) => card.classList.add(VISIBLE_CARD_CLASSNAME));
+    (async () => {
+        for (let card of shuffledCards) {
+            await renderCard(card);
+        }
 
-    setTimeout(() => {
-        renderedCards.forEach((card) => card.classList.remove(VISIBLE_CARD_CLASSNAME));
-    }, 1000);
+        const renderedCards = document.querySelectorAll(".card");
+
+        GAME_NODE.style.pointerEvents = "none";
+        console.log("Клики временно отключены");
+
+        setTimeout(() => {
+            renderedCards.forEach((card) => {
+                card.classList.add(VISIBLE_CARD_CLASSNAME);
+            });
+
+            setTimeout(() => {
+                renderedCards.forEach((card) => card.classList.remove(VISIBLE_CARD_CLASSNAME));
+                GAME_NODE.style.pointerEvents = "auto";
+            }, 2000);
+        }, 100); 
+    })();
 
     let remainingTime = GAME_TIME_LIMIT_MS / 1000;
     timerInterval = setInterval(() => {
@@ -258,10 +272,10 @@ function startGame() {
             TIMER_NODE.textContent = "Time's up!";
             WINNING_TEXT.textContent = "Try again!";
             GAME_NODE.classList.add('inactive');
-            GAME_NODE.querySelectorAll(".card").forEach((card) => card.removeEventListener("click", handleCardClick));
         }
     }, 1000);
 }
+
 
 function handleCardClick(card) {
     if (GAME_NODE.classList.contains('inactive') || card.classList.contains(VISIBLE_CARD_CLASSNAME) || VISIBLE_CARDS.length >= 2) {
@@ -331,8 +345,8 @@ function checkVictory() {
 function switchTheme(themeName, cards, backgroundPath) {
     currentThemeCards = cards;
     currentThemeBackground = backgroundPath;
-    setThemeBackground(); 
-    startGame(); 
+    setThemeBackground();
+    startGame();
 }
 
 HALLOWEEN_BUTTON.addEventListener("click", () => switchTheme('halloween', HALLOWEEN_CARDS, 'images/halloween/halloween-bg'));
