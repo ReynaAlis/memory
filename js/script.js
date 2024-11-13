@@ -54,6 +54,11 @@ function setThemeMusic(theme) {
     }
 }
 
+const volumeSlider = document.getElementById("volume-slider");
+volumeSlider.addEventListener("input", (event) => {
+    audio.volume = event.target.value; 
+});
+
 const UNIQUE_HALLOWEEN_CARDS = [
     {
         avif: 'images/halloween/1.avif',
